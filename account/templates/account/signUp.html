@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+font-family: Arial;
+direction:rtl;
+  }
+* {
+box-sizing: border-box;
+}
+.container {
+width: 100%;
+padding: 16px;
+background-image:url(Background.jpg);
+background-repeat:no-repeat;
+background-atachment:fixed;
+background-size:cover;
+border: 1px solid #333;
+}
+input{
+width: 100%;
+padding: 15px;
+margin: 5px 0 22px 0;
+display: inline-block;
+border: none;
+background: #f1f1f1;
+}
+input:focus{
+background-color: #ddd;
+outline: none;
+}
+.registerbtn {
+background-color: lightskyblue;
+color: black;
+padding: 15px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 100%;
+opacity: 0.9;
+}
+a {
+color: black;
+}
+.login {
+background-color: #f1f1f1;
+text-align: center;
+}
+  .logo{
+    height:63px;
+    width:100%;
+    background-color:lightskyblue;
+  }
+  .ertebat{
+    height:60px;
+    width:100%;
+    background-color:lightskyblue;
+    padding-right:5px;
+  }
+  footer{
+    font-size:0.5px;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+<a href="menu.html"> <img src="menu.png" width="42" height="50" style="padding-right:8px; padding-top:6px;"> </a>
+ <img src="logo.jpg" width="225" height="50">
+<a href="search.html"><img src="search.png" width="42" height="50"></a>
+    </div>
+  </header>
+  <div>
+<div class="container">
+<form method=post action="">
+<p>ورود به سایت</p>
+<hr>
+{{form}}
+{% csrf_token %}
+<input type="submit" class="registerbtn" value="عضویت">
+<div class="login">
+<p>عضو هستید؟<a href="account/login/">ورود به سایت</a></p>
+</div>
+</form>
+</div>
+  <footer>
+  <div class="ertebat">
+    <h3>ارتباط با ما</h3>
+   <p>پشتیبانی کار جویان 05137474747</p>
+   <p>پشتیبانی کار فرمایان05137676767</p>
+  </div>
+</footer>
+</body>
+</html>
