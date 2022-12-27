@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from .models import User
 
 
-def register(request):
+def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -15,7 +15,7 @@ def register(request):
     return render(request, 'account/signUp.html', {'form': form})
 
 
-def log_in_acc(request):
+def log_in(request):
     if request.user.is_authenticated is True:
         return redirect('home:home')
 
@@ -30,6 +30,6 @@ def log_in_acc(request):
     return render(request, "account/login.html", context={'form': form})
 
 
-def log_out_acc(request):
+def log_out(request):
     logout(request)
     return redirect('home:home')
