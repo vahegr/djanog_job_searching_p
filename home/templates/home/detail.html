@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ advertise.title }}
+{% endblock %}
+{% block main %}    
+    <!-- Detail Start -->
+    <div class="container py-5" dir="rtl">
+        <div class="row pt-5">
+            <div class="col-lg-8">
+                <div class="d-flex flex-column text-left mb-3">
+                    <p class="section-title pr-5"><span class="pr-2">Blog Detail Page</span></p>
+                    <h1 class="mb-3" style="text-align: right">{{advertise.title}}</h1>
+                    <div class="d-flex">
+                        <p class="mr-3"><i class="fa fa-user text-primary"></i> {{ advertise.user }}</p>
+                        <p class="mr-3"><i class=""></i> {{ advertise.city }}</p>
+                        <p class="mr-3"><i class="fa date-back"></i> {{ advertise.create }}</p>
+                    </div>
+                </div>
+                <div class="mb-5" style="text-align: right">
+                    <img class="img-fluid rounded w-100 mb-4" src="{{advertise.thumbnail.url}}" alt="Image">
+                    <p>{{advertise.description|linebreaks}}</p>
+                </div>
+            </div>   
+        </div>
+    </div>
+    <!-- Detail End -->
+{% endblock %}

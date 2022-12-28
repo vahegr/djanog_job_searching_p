@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+home
+{% endblock %}
+{% block main %}
+<!-- Blog Start -->
+        <div class="row" style="text-align: right; direction: rtl; margin-top: 50px">
+        {% for art in ad %}
+            <div class="col-lg-4 mb-4">
+                <div class="card border-0 shadow-sm mb-2">
+                    <img class="card-img-top mb-2" src="{{art.thumbnail.url}}" alt="" height="200" title="{{art.title}}">
+                    <div class="card-body bg-light text-center p-4">
+                        <h4 class="">{{art.title}}</h4>
+                        <div class="d-flex justify-content-center mb-3">
+                            <small class="mr-3"><i class="fa fa-clock text-primary"></i> {{art.publish}}</small>
+                        </div>
+                        <p>{{art.description|truncatewords:30}}</p>
+                        <p>
+{#                          {% for cat in art.category.all %}#}
+{#                          <a href="{% url 'blog:category' cat.slug %}">{{cat.title}}#</a>#}
+{#                          {% endfor %}#}
+                        </p>
+                        <a href="{{ art.get_absolute_url }}" class="btn btn-primary px-4 mx-auto my-2">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+       
+<!-- Blog End -->
+{% endblock %}

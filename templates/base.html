@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>کاریابی</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&family=Nunito&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="{% static 'lib/flaticon/font/flaticon.css'%}" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+    <link href="{% static 'lib/lightbox/css/lightbox.min.css'%}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css'%}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-light position-relative shadow"  style="direction: rtl;">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
+            <a href="" class="navbar-brand font-weight-bold text-secondary" style="font-size: 50px;">
+                <img src="{% static 'images/logo.jpg'%}" width="150" height="150">
+            </a>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav font-weight-bold mx-auto py-0">
+                    <a href="index.html" class="nav-item nav-link"> <input type="submit" value="صفحه اصلی" class="btn btn-primary px-4" /></a>
+                    <a href="Resume.html" class="nav-item nav-link active"> <input type="submit" value="رزومه ساز" class="btn btn-primary px-4" /></a>
+                    <a href="advertise.html" class="nav-item nav-link"> <input type="submit" value="ثبت آگهی" class="btn btn-primary px-4" /> </a>
+                    <a href="about.html" class="nav-item nav-link">  <input type="submit" value="دربازه ما" class="btn btn-primary px-4" /></a>
+                </div>
+            </div>    
+            {% if user.is_authenticated %}
+            <form action="{% url 'account:logout' %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="خروج از سایت" class="btn btn-primary px-4" />
+            </form>    
+            {% else %}
+            <form action="{% url 'account:login' %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="ورود/عضویت" class="btn btn-primary px-4" />
+            </form>    
+            {% endif %}
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+<!-- Header Start -->
+<div style="height: 100px; width: 100%; background-color: rgb(31, 85, 119);">
+    <div class="text-center pb-2">
+        <h1 style="padding:50px; color: rgb(255, 255, 255)">آگهی ها</h1>
+    </div>
+</div>
+
+    <!-- Header End -->
+
+
+    {% block main %}
+
+    {% endblock %}
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-secondary text-white mt-5 py-5 px-sm-3 px-md-5" style="direction: rtl;">
+        <div class="row pt-5">
+            <div class="col-lg-3 col-md-6 mb-5" >
+                <h3 class="text-primary mb-4">ارتباط با ما</h3>
+                <div class="d-flex">
+                    <h4 class="fa fa-map-marker-alt text-primary"></h4>
+                    <div class="pl-3">
+                       <p style="direction: rtl;"> <h5 class="text-white">آدرس</h5></p>
+                        <p>تهران-بزرگمهر -ساختمان پردیس</p>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <h4 class="fa fa-envelope text-primary"></h4>
+                    <div class="pl-3">
+                        <h5 class="text-white">ایمیل</h5>
+                        <p>karjob@gmail.com</p>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <h4 class="fa fa-phone-alt text-primary"></h4>
+                    <div class="pl-3">
+                        <h5 class="text-white">شماره تماس</h5>
+                        <p>پشتیبانی کارجویان:05137474747</p>
+                        <p>پشتیبانی کارفرمایان:05137676767</p>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-top: 300px;">
+            <div class="d-flex justify-content-start mt-4">
+                <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+                    style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+                    style="width: 38px; height: 38px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+                    style="width: 38px; height: 38px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+                    style="width: 38px; height: 38px;" href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary p-3 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{%static 'lib/easing/easing.min.js'%}"></script>
+    <script src="{%static 'lib/owlcarousel/owl.carousel.min.js'%}"></script>
+    <script src="{%static 'lib/isotope/isotope.pkgd.min.js'%}"></script>
+    <script src="{%static 'lib/lightbox/js/lightbox.min.js'%}"></script>
+    <!-- Contact Javascript File -->
+    <script src="{%static 'mail/jqBootstrapValidation.min.js'%}"></script>
+    <script src="{%static 'mail/contact.js'%}"></script>
+    <!-- Template Javascript -->
+    <script src="{%static 'js/main.js'%}"></script>
+</body>
+
+</html>

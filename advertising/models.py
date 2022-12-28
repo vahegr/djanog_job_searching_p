@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from account.models import User
+from django.urls import reverse
 
 
 class Category(models.Model):
@@ -35,6 +36,9 @@ class Advertise(models.Model):
     publish = models.DateTimeField(default=timezone.now, verbose_name="تاریخ")
     update = models.DateTimeField(auto_now=timezone.now, verbose_name="بروزرسانی پست")
     status = models.CharField(max_length=1, choices=STATUS_CHOICE, default='p', verbose_name="وضعیت")
+
+    def get_absolute_url(self):
+        return reverse('home:ad_detail', args=[self.id, self.slug])
 
     def __str__(self):
         return self.title
