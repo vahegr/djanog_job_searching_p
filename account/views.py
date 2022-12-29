@@ -9,7 +9,7 @@ def signup(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')
+            return redirect('account:login')
     else:
         form = UserCreationForm()
     return render(request, 'account/signUp.html', {'form': form})
@@ -22,7 +22,7 @@ def log_in(request):
     if request.method == "POST":
         form = LogInForm(request.POST)
         if form.is_valid():
-            user = User.objects.get(username=form.cleaned_data.get('username'))
+            user = User.objects.get(email=form.cleaned_data.get('email'))
             login(request, user)
             return redirect('home:home')
     else:
