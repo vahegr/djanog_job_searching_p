@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<style>
+
+body {
+
+font-family: Arial
+;
+direction:rtl;
+
+}
+
+.lbl {
+
+width: 100%;
+
+height:400px;
+padding: 16px;
+
+background-image:url(relation.jpg);
+background-repeat:no-repeat;
+
+background-atachment:fixed;
+
+background-size:cover;
+
+border: 1px solid #333;
+  
+font-size:15px;
+
+}
+  
+.logo{
+    
+height:63px;
+    
+width:100%;
+    
+background-color:lightskyblue;
+
+  }
+  
+.ertebat{
+    
+height:60px;
+    
+width:100%;
+    
+background-color:lightskyblue;
+    
+padding-right:5px;
+
+  }
+  
+footer{
+    
+font-size:10px;
+
+  }
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+
+<a href="menu.html"> <img src="menu.png" width="42" height="50" style="padding-right:8px; padding-top:6px;"> </a>
+
+<img src="logo.jpg" width="225" height="50">
+
+<a href="search.html"><img src="search.png" width="42" height="50"></a>
+
+</div>
+
+</header>
+  
+<div>
+
+<div class="lbl">
+
+<form>
+
+<h3>ارتباط با ما</h3>
+
+<b>آدرس:</b>
+
+<p>{{ about.location }}</p>
+
+<b>شماره تماس:</b>
+
+<p>پشتیبانی کارجویان:{{ about.job_searcher_call }}</p>
+
+<p>پشتیبانی کارفرمایان:{{ about.employer_call }}</p>
+  
+<b>ایمیل:</b>
+<p>{{ about.email }}</p>
+  
+<b>کانال های ما:</b>
+<p>تلگرام:{{ about.telegram }}</p>
+
+</form>
+
+</div>
+  
+<footer>
+  
+<div class="ertebat">
+    
+<h3>ارتباط با ما</h3>
+   
+<p>پشتیبانی کار جویان {{ about.job_searcher_call }}</p>
+   
+<p>پشتیبانی کار فرمایان{{ about.employer_call }}</p>
+  
+</div>
+
+</footer>
+
+</body>
+
+</html>

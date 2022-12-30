@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'advertising.apps.AdvertisingConfig',
     'home.apps.HomeConfig',
-    'chat.apps.ChatConfig'
+    'chat.apps.ChatConfig',
+    'about.apps.AboutConfig',
 ]
 
 MIDDLEWARE = [
