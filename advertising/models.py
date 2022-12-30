@@ -37,6 +37,14 @@ class Advertise(models.Model):
     update = models.DateTimeField(auto_now=timezone.now, verbose_name="بروزرسانی پست")
     status = models.CharField(max_length=1, choices=STATUS_CHOICE, default='p', verbose_name="وضعیت")
 
+    def check_status(self):
+        now = timezone.now()
+        end_day = self.publish.day + 15
+        if now > end_day:
+            self.status = 'd'
+            self.save()
+        return self.status
+
     def get_absolute_url(self):
         return reverse('home:ad_detail', args=[self.id, self.slug])
 
