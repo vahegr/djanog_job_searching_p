@@ -73,7 +73,7 @@ class Resume(models.Model):
     language = models.CharField(max_length=100, verbose_name="آیا به زبان دیگری تسلط دارید؟")
     project = models.CharField(max_length=100, verbose_name="پروژه های کاری")
     certificate = models.CharField(max_length=100, verbose_name="گواهی نامه ها و افتخارات")
-    dore = models.CharField(max_length=100, verbose_name="دوره ها")
+    courses = models.CharField(max_length=100, verbose_name="دوره ها")
     job = models.CharField(max_length=100, verbose_name="تجربه شغلی")
     last_job_situation = models.CharField(max_length=100, verbose_name="آخرین موقعیت شغلی")
     city = models.CharField(max_length=100, verbose_name="شهر")
