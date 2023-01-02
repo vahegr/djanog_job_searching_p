@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<style>
+body {
+font-family: Arial;
+  direction:rtl;
+}
+* {
+box-sizing: border-box;
+}
+.container {
+width: 100%;
+padding: 16px;
+background-image:url(Background.jpg);
+background-repeat:no-repeat;
+background-atachment:fixed;
+background-size:cover;
+border: 1px solid #333;
+}
+input{
+width: 100%;
+padding: 15px;
+margin: 5px 0 22px 0;
+display: inline-block;
+border: none;
+background: #f1f1f1;
+}
+input:focus{
+background-color: #ddd;
+outline: none;
+}
+hr {
+border: 1px solid #f1f1f1;
+margin-bottom: 25px;
+}
+.registerbtn {
+background-color:lightskyblue;
+color: black;
+padding: 15px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 100%;
+opacity: 0.9;
+opacity: 1;
+}
+a {
+color: black;
+}
+  .logo{
+    height:63px;
+    width:100%;
+    background-color:lightskyblue;
+  }
+  .ertebat{
+    height:60px;
+    width:100%;
+    background-color:lightskyblue;
+    padding-right:5px;
+  }
+  footer{
+    font-size:0.5px;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+<a href="menu.html"> <img src="menu.png" width="42" height="50" style="padding-right:8px; padding-top:6px;"> </a>
+ <img src="logo.jpg" width="225" height="50">
+<a href="search.html"><img src="search.png" width="42" height="50"></a>
+    </div>
+  </header>
+  <div>
+<div class="container" style="font-size: 20px">
+    <br>
+<span>نام:</span>
+<span>{{ user_resume.full_name }}</span><br><br>
+<span>ایمیل:</span>
+<span>{{ user_resume.email }}</span><br><br>
+<span>شماره مبایل:</span>
+<span>{{ user_resume.phone }}</span><br><br>
+<span>حرفه:</span>
+<span>{{ user_resume.skill }}</span>  <br><br>
+<span>وضعیت تاهل:</span>
+<span>{{ user_resume.status }}</span> <br><br>
+<span>مقطع تحصیلی:</span>
+<span>{{ user_resume.education }}</span><br><br>
+<span>دانشگاه:</span>
+<span>{{ user_resume.university }}</span><br><br>
+<span>رشته:</span>
+<span>{{ user_resume.field }}</span><br><br>
+<span>تسلط به انگلیسی:</span>
+<span>{{ user_resume.english }}</span><br><br>
+<span>تسلط به زبان دیگر:</span>
+<span>{{ user_resume.language }}</span><br><br>
+<span>پروژه های:</span>
+<span>{{ user_resume.project }}</span><br><br>
+<span>گواهی نامه و افتخارات:</span>
+<span>{{ user_resume.certificate }}</span><br><br>
+<span>دوره ها:</span>
+<span>{{ user_resume.courses }}</span><br><br>
+<span>تجربه شغلی:</span>
+<span>{{ user_resume.job }}</span><br><br>
+<span>آخرین موقعیت شغلی:</span>
+<span>{{ user_resume.last_job_situation }}</span><br><br>
+<span>شهر:</span>
+<span>{{ user_resume.city }}</span><br><br>
+    {% if request.user.id != user_resume.id %}
+        <p><a href="{% url 'chat:check_view' request.user.id user_resume.id %}">چت با کاربر</a></p>
+    {% endif %}
+</div>
+  <footer>
+  <div class="ertebat">
+    <h3>ارتباط با ما</h3>
+   <p>پشتیبانی کار جویان 05137474747</p>
+   <p>پشتیبانی کار فرمایان05137676767</p>
+  </div>
+</footer>
+</body>
+</html>

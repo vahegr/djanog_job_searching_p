@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+font-family: Arial;
+  direction:rtl;
+}
+* {
+box-sizing: border-box;
+}
+.container {
+width: 100%;
+padding: 16px;
+background-image:url(Background.jpg);
+background-repeat:no-repeat;
+background-atachment:fixed;
+background-size:cover;
+border: 1px solid #333;
+}
+input{
+width: 100%;
+padding: 15px;
+margin: 5px 0 22px 0;
+display: inline-block;
+border: none;
+background: #f1f1f1;
+}
+input:focus{
+background-color: #ddd;
+outline: none;
+}
+hr {
+border: 1px solid #f1f1f1;
+margin-bottom: 25px;
+}
+.registerbtn {
+background-color:rgb(7, 51, 79);
+color: rgb(255, 255, 255);
+padding: 15px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 100%;
+opacity: 0.9;
+opacity: 1;
+}
+a {
+color: black;
+}
+  .logo{
+    height:63px;
+    width:100%;
+    background-color:rgb(7, 51, 79);
+  }
+  .ertebat{
+    height:60px;
+    width:100%;
+    background-color:rgb(7, 51, 79);
+    padding-right:5px;
+    color:white;
+  }
+  footer{
+    font-size:0.5px;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+  </div>
+  </header>
+              <!-- Content -->
+              <div id="content" class="colM">
+                
+                <h1>اضافه کردن آگهی</h1>
+                
+                <div id="content-main">
+
+
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form }}
+                        <div class="">
+                            <button type="submit" class="btn custom-btn w-50">ثبت</button>
+                        </div>
+                        <hr>
+                        {{ form.errors }}
+                        {{ form.non_field_errors }}
+
+
+
+                    </form>
+      
+                
+                <br class="clear">
+              </div>
+              <!-- END Content -->
+              <div id="footer"></div>
+            </div>
+          </div>
+      </div>
+      <!-- END Container -->
+      </body>
+      </html>
+  <footer>
+  <div class="ertebat">
+    <h3>ارتباط با ما</h3>
+   <p>پشتیبانی کار جویان 05137474747</p>
+   <p>پشتیبانی کار فرمایان05137676767</p>
+  </div>
+</footer>
+</body>
+</html>

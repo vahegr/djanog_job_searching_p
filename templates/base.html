@@ -38,20 +38,26 @@
                 <img src="{% static 'images/logo.jpg'%}" width="150" height="150">
             </a>
         <form style="margin-right: 30px" action="{% url 'home:search result' %}" method="get">
-            <input type="search" style="height:50px;border-radius: 30px" placeholder="جستجو..." name="q">
+            <input type="search" style="height:50px;border-radius: 30px" placeholder="نام آگهی یا حرفه یک رزومه..." name="q">
             <button style="background-color:lightskyblue;border-radius: 30px" type="submit">جستجو</button>
         </form>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav font-weight-bold mx-auto py-0">
                     <a href="{% url 'home:home' %}" class="nav-item nav-link"> <input type="submit" value="صفحه اصلی" class="btn btn-primary px-4" /></a>
-                    <a href="Resume.html" class="nav-item nav-link active"> <input type="submit" value="رزومه ساز" class="btn btn-primary px-4" /></a>
-                    <a href="advertise.html" class="nav-item nav-link"> <input type="submit" value="ثبت آگهی" class="btn btn-primary px-4" /> </a>
-                    <a href="about.html" class="nav-item nav-link">  <input type="submit" value="دربازه ما" class="btn btn-primary px-4" /></a>
+                    {% if request.user.is_authenticated %}
+                        {% if job_seeker %}
+                            <a href="{% url 'home:edit resume' request.user.username %}" class="nav-item nav-link active"> <input type="submit" value="رزومه ساز" class="btn btn-primary px-4" /></a>
+                        {% else %}
+                            <a href="{% url 'home:add advertise' %}" class="nav-item nav-link"> <input type="submit" value="ثبت آگهی" class="btn btn-primary px-4" /> </a>
+                        {% endif %}
+                    {% endif %}
+                    <a href="{% url 'about:about' %}" class="nav-item nav-link">  <input type="submit" value="دربازه ما" class="btn btn-primary px-4" /></a>
                 </div>
             </div>    
-            {% if user.is_authenticated %}
+            {% if request.user.is_authenticated %}
             <form action="{% url 'account:logout' %}" method="post">
                     {% csrf_token %}
+                    {{ request.user.username }}
                     <input type="submit" value="خروج از سایت" class="btn btn-primary px-4" />
             </form>    
             {% else %}

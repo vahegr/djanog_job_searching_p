@@ -26,6 +26,30 @@ home
                 </div>
             </div>
             {% endfor %}
+            <div style="height: 100px; width: 100%; background-color: rgb(31, 85, 119);">
+                <div class="text-center pb-2">
+                    <h1 style="padding:50px; color: rgb(255, 255, 255)">رزومه ها </h1>
+                </div>
+            </div>
+            {% for resume in resumes %}
+            <div class="col-lg-4 mb-4">
+                <div class="card border-0 shadow-sm mb-2">
+                    {% if resume.image %}
+                        <img style="border-radius: ;" class="card-img-top mb-2" src="{{resume.image.url}}" alt="" height="200" title="{{resume.username}}">
+                    {% else %}
+                        <img class="card-img-top mb-2" src="{% static 'img/student-prof.png' %}" alt="" height="200" title="{{resume.username}}">
+                    {% endif %}
+                    <div class="card-body bg-light text-center p-4">
+                        <h4 class="">{{resume.full_name}}</h4>
+                        <div class="d-flex justify-content-center mb-3">
+                            <small class="mr-3"><i class="fa fa-clock text-primary"></i> {{ resume.city }}</small>
+                        </div>
+                        <p>{{ resume.skill }}</p>
+                        <a href="{% url 'home:resume detail' resume.id %}" class="btn btn-primary px-4 mx-auto my-2">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
        
 <!-- Blog End -->
 {% endblock %}

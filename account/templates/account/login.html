@@ -83,7 +83,7 @@ text-align: center;
 {% csrf_token %}
 <input type="submit" class="registerbtn" value="ورود">
 <div class="signup">
-<p>عضو نیستید؟<a href="account/signup/">عضویت در سایت</a></p>
+<p>عضو نیستید؟<a href="{% url 'account:signup' %}">عضویت در سایت</a></p>
 </div>
 </form>
 </div>

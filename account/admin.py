@@ -20,7 +20,9 @@ class UserAdmin(BaseUserAdmin):
         (None, {'fields': ('email', 'username', 'password')}),
         ('Personal info', {'fields': (
             'full_name', 'bio', 'phone', 'image',
-            'instagram', 'github', 'linkedin', 'twitter')}),
+            'type_of_user', 'skill', 'status', 'education', 'university',
+            'field', 'english', 'language', 'project', 'certificate', 'courses',
+            'job', 'last_job_situation', 'city')}),
         ('Permissions', {'fields': ('is_admin',)}),
     )
     # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin

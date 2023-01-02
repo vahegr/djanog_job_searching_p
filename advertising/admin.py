@@ -20,10 +20,3 @@ class AdvertiseAdmin(admin.ModelAdmin):
     def category_to_str(self, obj):
         return ", ".join(category.title for category in obj.category.all())
 
-
-@admin.register(models.Resume)
-class ResumeAdmin(admin.ModelAdmin):
-    display = ('name', 'education')
-    search_fields = (
-        'name', 'skill', 'status', 'education', 'university', 'field',
-        'english', 'language', 'project', 'certificate', 'dore', 'job', 'last_job_situation', 'city')
