@@ -21,7 +21,7 @@
                     <img class="img-fluid rounded w-100 mb-4" src="{{advertise.thumbnail.url}}" alt="Image">
                     <p>{{advertise.description|linebreaks}}</p>
                     {% if request.user.id != advertise.user.id %}
-                        <p><a href="{% url 'chat:check_view' request.user.id advertise.user.id %}">چت با کاربر</a></p>
+                        <p><a href="{% url 'chat:check_view' advertise.user.id %}">چت با کاربر</a></p>
                     {% endif %}
                 </div>
             </div>   

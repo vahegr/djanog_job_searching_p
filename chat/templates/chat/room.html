@@ -61,7 +61,8 @@ body {
 <div id="display">
     {% for message in messages %}
         <div class="container darker">
-            <b>{{ message.user.username }}</b><p>{{ message.value }}</p>
+            <span>{{ message.user.username }}</span>
+            <p>{{ message.value }}</p>
             <span class="time-left">{{ message.date }}</span>
         </div>
     {% endfor %}
