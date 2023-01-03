@@ -37,10 +37,12 @@ def check_view(request, userid):
     room1 = Room.objects.filter(user_1_id=user.id, user_2_id=userid)
     room2 = Room.objects.filter(user_1_id=userid, user_2_id=user.id)
     if user.is_authenticated:
-        if room1.exists() or room2.exists():
+        if room1.exists():
             return redirect(reverse('chat:room', kwargs={'user1_id': user.id, 'user2_id': userid}))
-        else:
-            Room.objects.create(user_1_id=user.id, user_2_id=userid)
-            return redirect(reverse('chat:room', kwargs={'user1_id': user.id, 'user2_id': userid}))
+        if room2.exists():
+            return redirect(reverse('chat:room', kwargs={'user1_id': userid, 'user2_id': user.id}))
+
+        Room.objects.create(user_1_id=user.id, user_2_id=userid)
+        return redirect(reverse('chat:room', kwargs={'user1_id': user.id, 'user2_id': userid}))
 
 
